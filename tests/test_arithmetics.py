@@ -1,5 +1,5 @@
 import pytest
-from src.arithmetics import add, subtract, multiply, intergerDivide
+from src.arithmetics import add, subtract, multiply, intergerDivide, factorial
 
 def test_add():
     assert add(1, 2) == 3
@@ -14,6 +14,16 @@ def test_integer_divide():
     assert intergerDivide(10, 2) == 5
     try:
         intergerDivide(10, 0)
+    except ValueError:
+        assert True
+    else:
+        assert False
+        
+def test_factorial():
+    assert factorial(5) == 120
+    assert factorial(0) == 1
+    try:
+        factorial(-1)
     except ValueError:
         assert True
     else:
